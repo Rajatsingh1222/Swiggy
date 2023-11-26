@@ -136,7 +136,7 @@ fetchData();
         <>
         {/* <City/> */}
         
-        <div className="body">
+        <div className="body ">
              
   
        <input type="text" id ="fltr" placeholder="Find Restaurant" className="rounded-lg my-6 w-[400px] bg-gray-100 h-[35px] focus:outline-transparent focus:bg-white focus:shadow-md ml-7"
@@ -159,7 +159,7 @@ fetchData();
         
 
                 
-                <div className="res-container flex  flex-wrap ml-6 mb-48">
+                <div className="res-container flex  flex-wrap ml-6 mb-[100px]">
 
                  {filteredList.map((restaurant)=> (
 
