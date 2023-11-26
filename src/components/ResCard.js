@@ -1,42 +1,28 @@
 const RestCard=(props)=>{
     const {resData}=props;
-    const green={
-       
-        backgroundColor:"lightGreen",
-        
-        
-    };
-    const blue={
-        backgroundColor:"skyBlue",
-       
-    };
-    const yellow={
-        backgroundColor:"yellow",
-        
-    };
+
     
     return (
         <>
-        <div className="res-card">
-        <img className="card-img" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +resData.info.cloudinaryImageId }
+        <div className="res-card w-52 hover:scale-105 transition-all duration-200 m-1 h-[auto] ease-out mb-5">
+        <img className="card-img h-36 w-52" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +resData.info.cloudinaryImageId }
         ></img>
 
-        <div className="card-text-1">
+        <div className="card-text-1 pl-2 text-lg font-bold text-gray-600">
         <h3>{resData.info.name}</h3>
         </div>
 
 
-   <div className="card-text-2">
-       <div className="style-rating-1" style={resData.info.avgRating>=4?green:(resData.info.avgRating>3.5?blue:yellow)}><img src="https://e7.pngegg.com/pngimages/587/114/png-clipart-computer-icons-open-grey-star-angle-white.png"/></div>
-       <div className="style-rating-2"> {resData.info.avgRating }</div>
-   <div className="style-rating-3">{resData.info.sla.slaString}</div>
+   <div className="card-text-2 ">
+       <div className="style-rating-2 pl-2 text-gray-600"> {resData.info.avgRating }</div>
+   <div className="style-rating-3 pl-2 text-gray-600 ">{resData.info.sla.slaString}</div>
         
    </div>
         
        
-        <div className="card-text-3">
+        <div className="card-text-3 pl-2">
 
-        <div>{resData.info.cuisines.join(",")}</div>
+        <div className=" overflow-hidden text-gray-600">{resData.info.cuisines.join(",")}</div>
         </div>
         
 

@@ -106,7 +106,7 @@ const fetchData= async ()=>{
    
     
     // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?"+"lat=28.7040592&lng=77.10249019999999"+"&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-    const data=await fetch(Lakhimpur);
+    const data=await fetch(Lucknow);
     
     const Json= await data.json();   
       
@@ -139,14 +139,14 @@ fetchData();
         <div className="body">
              
   
-       <input type="text" id ="fltr" placeholder="Find Restaurant" className="searchPlace"
+       <input type="text" id ="fltr" placeholder="Find Restaurant" className="rounded-lg my-6 w-[400px] bg-gray-100 h-[35px] focus:outline-transparent focus:bg-white focus:shadow-md ml-7"
                 // setList(resList);  //only data change required // no UI change require
                 // onClick={()=>{
                 //     List=x;
                 // }}
                ></input>
 
-               <button className="filter-btn" onClick={(e)=>{
+               <button className="filter-btn bg-gray-100 h-[35px] w-12 mt-8 ml-[-7px]" onClick={(e)=>{
 
                const n=(document.getElementById("fltr").value);
                 
@@ -156,10 +156,10 @@ fetchData();
                }} >🔍</button>
 
             
-        <div className="res-container-parent">
+        
 
                 
-                <div className="res-container">
+                <div className="res-container flex  flex-wrap ml-6 mb-48">
 
                  {filteredList.map((restaurant)=> (
 
@@ -174,7 +174,7 @@ fetchData();
         </div>
 
 
-        </div>
+    
         </>
     )
     
