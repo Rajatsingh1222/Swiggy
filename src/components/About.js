@@ -1,9 +1,11 @@
 const About=()=>{
     return (
         <>
+<div className="h-[1000px]">
 
-<div><h1>About us</h1></div>
-<div><h4>Hello!!</h4></div>
+<div>About us</div>
+<div>Hello!!</div>
+</div>
         </>
     )
 };

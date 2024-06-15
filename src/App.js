@@ -10,6 +10,9 @@ import Contact from "./components/Contact"
 import RestMenu from "./components/RestMenu"
 import { createBrowserRouter,Outlet,RouterProvider } from "react-router-dom";
 import City from "./components/City";
+import Cart from "./components/Cart";
+import { Provider } from "react-redux";
+import appstore from "./utils.js/appstore";
 
 
 
@@ -17,6 +20,8 @@ import City from "./components/City";
 
 const AppLayout=()=>{
     return (
+        <Provider store={appstore}>
+
         <div className="App">
         
     <Header/>
@@ -24,6 +29,7 @@ const AppLayout=()=>{
     <Footer/>
     {/* <About/> */}
         </div>
+        </Provider>
     );
 
 };
@@ -51,6 +57,11 @@ const appRouter=createBrowserRouter([
     {
         path:"/restaurantmenu/:id",
         element:<RestMenu/>
+    
+    },
+    {
+        path:"/cart",
+        element:<Cart/>
     
     }
             ],

@@ -27,12 +27,12 @@ const RestMenu=()=>{
     };
     if (menuList ===null )return <Shimmer/>;
     if(itemCards===null)return <Shimmer/>;
-    const {name,areaName,cuisines,costForTwoMessage}=menuList?.cards[0]?.card?.card?.info;
-    var {itemCards}=menuItems?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    const {name,areaName,cuisines,costForTwoMessage}=menuList?.cards[2]?.card?.card?.info;
+    var {itemCards}=menuItems?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
     if(itemCards==[]) {
         return <Shimmer/>;
     }
- const category=menuItems?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>
+ const category=menuItems?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>
  c.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
  );
 
@@ -41,20 +41,21 @@ const RestMenu=()=>{
  
     return (
         <>
-    
-    <div className="menu-card">
-    <h2>{name}</h2>
+
+    <div className="menu-card text-gray-700 text-lg font-semibold w-[900px] h-[130px] bg-purple-300 shadow-[22px_22px_83px_#c1c1c1,-22px_-22px_83px_#ffffff]  text-center  mx-auto  my-5 rounded-lg">
+    <div className="font-bold text-3xl">{name}</div>
     <div>{areaName+"📍`"}</div>
     <div>{cuisines.join(", ")}</div>
     <div>{costForTwoMessage}</div>
     </div>
 
-{
 
+{
 category.map((category)=>(
 <ResCategory key={category.card.card.title} catData={category}/>
 ))
 }
+
     
 
     

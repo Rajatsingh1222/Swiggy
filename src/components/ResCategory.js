@@ -12,16 +12,16 @@ const expand=()=>{
 // console.log(catData.card.card.itemCards);
     return (
         <>
-        <div className="w-8/12 h-[60px] flex justify-between bg-blue-50  my-2 mx-auto cursor-pointerrounded-md shadow-md cursor-pointer items-center "  onClick={expand} >
+        <div className="w-[840px] h-[60px]  mx-auto bg-red-200  mb-[11px]  flex justify-between cursor-pointer rounded-2xl shadow-lg items-center hover:scale-[1.02] transition-transform duration-300"  onClick={expand} >
 
-<div className="text-gray-600 font-semibold text-lg ml-3">{catData.card.card.title}({catData.card.card.itemCards.length})</div>
+<div className="text-gray-600 font-semibold text-lg ml-3">{catData.card.card.title}   ({catData.card.card.itemCards.length})</div>
 <div className="my-auto mx-3">{arrow}</div>
 
 
         </div>
 
 
-        
+        ``
 
     {show && <Food_item items={catData.card.card.itemCards} />}
 

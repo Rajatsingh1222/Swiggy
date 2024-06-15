@@ -97,25 +97,20 @@ const {cityId}=useParams();
     
     
     useEffect(()=>{
-      
 
-        
-
-const fetchData= async ()=>{
-       
-   
-    
+     const fetchData= async ()=>{
+           
     // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?"+"lat=28.7040592&lng=77.10249019999999"+"&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-    const data=await fetch(Lucknow);
+    // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179");
+    const data=await fetch(Lakhimpur);
     
     const Json= await data.json();   
       
     //  "Optional Chaining"
-    setList(Json?.data?.cards[5]?.card.card?.gridElements?.infoWithStyle?.restaurants); 
-    setFilteredList(Json?.data?.cards[5]?.card.card?.gridElements?.infoWithStyle?.restaurants); 
-    // setList([]); 
+    setList(Json?.data?.cards[1]?.card.card?.gridElements?.infoWithStyle?.restaurants); 
+    setFilteredList(Json?.data?.cards[1]?.card.card?.gridElements?.infoWithStyle?.restaurants); 
+   
     
-    // x=Json?.data?.cards[5]?.card.card?.gridElements?.infoWithStyle?.restaurants;
     
 };
 
@@ -136,24 +131,35 @@ fetchData();
         <>
         {/* <City/> */}
         
-        <div className="body ">
+        <div className="body">
              
   
-       <input type="text" id ="fltr" placeholder="Find Restaurant" className="rounded-lg my-6 w-[400px] bg-gray-100 h-[35px] focus:outline-transparent focus:bg-white focus:shadow-md ml-7"
-                // setList(resList);  //only data change required // no UI change require
-                // onClick={()=>{
-                //     List=x;
-                // }}
+       <input type="text" id ="fltr" placeholder="Find Restaurant" className="rounded-lg w-[400px] bg-gray-100 h-[35px] focus:outline-transparent focus:bg-white focus:shadow-md ml-7 "
+       onKeyUp={(e)=>{
+
+if (e.key === 'Enter') {
+
+const n=(document.getElementById("fltr").value);
+
+var filteredlist =List.filter((rate)=>  { return rate.info.name.toLowerCase().includes(n.toLowerCase())  }
+                );
+setFilteredList(filteredlist);                
+}
+}}
+               
                ></input>
 
-               <button className="filter-btn bg-gray-100 h-[35px] w-12 mt-8 ml-[-7px]" onClick={(e)=>{
+               <button className="filter-btn bg-gray-100 h-[35px] w-12 my-2 ml-[-7px]"  onClick={(e)=>{
 
-               const n=(document.getElementById("fltr").value);
-                
-                var filteredlist =List.filter((rate)=>  { return rate.info.name.toLowerCase().includes(n.toLowerCase())  }
-                                );
-                setFilteredList(filteredlist);                
-               }} >🔍</button>
+
+
+const n=(document.getElementById("fltr").value);
+
+var filteredlist =List.filter((rate)=>  { return rate.info.name.toLowerCase().includes(n.toLowerCase())  }
+                );
+setFilteredList(filteredlist);                
+
+}}>🔍</button>
 
             
         
