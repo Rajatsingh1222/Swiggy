@@ -39205,7 +39205,7 @@ const Body = ()=>{
         const fetchData = async ()=>{
             // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?"+"lat=28.7040592&lng=77.10249019999999"+"&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
             // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179");
-            const data = await fetch(Lakhimpur);
+            const data = await fetch(Mumbai);
             const Json = await data.json();
             //  "Optional Chaining"
             setList(Json?.data?.cards[1]?.card.card?.gridElements?.infoWithStyle?.restaurants);
@@ -40328,30 +40328,47 @@ const Footer = ()=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
                         href: "https://www.instagram.com/___rajatsingh/",
+                        target: "_blank",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                             className: "  rounded-2xl w-12 h-12 hover:scale-95 transition-all duration-300 hover:opacity-40",
                             src: "https://cdn-icons-png.flaticon.com/128/2111/2111463.png"
                         }, void 0, false, {
                             fileName: "src/components/Footer.js",
                             lineNumber: 5,
-                            columnNumber: 56
+                            columnNumber: 72
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Footer.js",
                         lineNumber: 5,
                         columnNumber: 5
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        className: "rounded-2xl w-12 h-12 pl-1 hover:scale-95 transition-all duration-300 hover:opacity-40",
-                        src: "https://cdn-icons-png.flaticon.com/128/2504/2504923.png"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                        href: "https://www.linkedin.com/in/rajat-singh-63983517a/",
+                        target: "_blank",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            className: "rounded-2xl w-12 h-12 pl-1 hover:scale-95 transition-all duration-300 hover:opacity-40",
+                            src: "https://cdn-icons-png.flaticon.com/128/2504/2504923.png"
+                        }, void 0, false, {
+                            fileName: "src/components/Footer.js",
+                            lineNumber: 6,
+                            columnNumber: 82
+                        }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Footer.js",
                         lineNumber: 6,
                         columnNumber: 5
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        className: "rounded-2xl w-12 h-12 pl-1 hover:scale-95 transition-all duration-300 hover:opacity-40",
-                        src: "https://cdn-icons-png.flaticon.com/128/733/733553.png"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                        href: "https://github.com/Rajatsingh1222",
+                        target: "_blank",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            className: "rounded-2xl w-12 h-12 pl-1 hover:scale-95 transition-all duration-300 hover:opacity-40",
+                            src: "https://cdn-icons-png.flaticon.com/128/733/733553.png"
+                        }, void 0, false, {
+                            fileName: "src/components/Footer.js",
+                            lineNumber: 7,
+                            columnNumber: 65
+                        }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Footer.js",
                         lineNumber: 7,

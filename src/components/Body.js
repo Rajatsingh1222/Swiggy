@@ -102,7 +102,7 @@ const {cityId}=useParams();
            
     // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?"+"lat=28.7040592&lng=77.10249019999999"+"&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179");
-    const data=await fetch(Lakhimpur);
+    const data=await fetch(Mumbai);
     
     const Json= await data.json();   
       
