@@ -177,7 +177,7 @@ setFilteredList(filteredlist);
                  ))}
                     
                 </div>
-        </div>
+               </div>
 
 
     
