@@ -33707,11 +33707,21 @@ const Cart = ()=>{
     const clearItemsfun = ()=>{
         dispatch((0, _cartSlice.clearCart)());
     };
+    const addItemsfun = (item)=>{
+        dispatch((0, _cartSlice.addItems)(item));
+    };
+    const removeItemsfun = (item)=>{
+        dispatch((0, _cartSlice.removeItems)(item));
+    };
     // const quant=useSelector((store)=>store.cart.items.card)
-    console.log(cartItems);
+    // console.log(cartItems)
+    let subtotal = 0;
+    cartItems.map((item)=>{
+        return subtotal += (item.card.info.price, item.card.info.price / 100) * item.quan;
+    });
     if (cartItems.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _emptyCartDefault.default), {}, void 0, false, {
         fileName: "src/components/Cart.js",
-        lineNumber: 18,
+        lineNumber: 27,
         columnNumber: 11
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -33719,101 +33729,152 @@ const Cart = ()=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "relative",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    className: "w-[90px] h-[37px] bg-black m-10 text-white rounded-lg p-2 font-semibold whitespace-nowrap absolute right-1 hover:scale-90 transition-all",
+                    className: "w-[90px] h-[40px] bg-black m-10 text-white rounded-lg p-2 font-semibold whitespace-nowrap absolute right-1 hover:scale-90 transition-all",
                     onClick: clearItemsfun,
                     children: " Clear Cart"
                 }, void 0, false, {
                     fileName: "src/components/Cart.js",
-                    lineNumber: 24,
+                    lineNumber: 33,
                     columnNumber: 6
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Cart.js",
-                lineNumber: 22,
+                lineNumber: 31,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: " p-[3px] mt-16 ml-10 bg-yellow-200 w-[600px] rounded-md",
-                children: cartItems.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "  w-12/12 h-[70px] cursor-point  shadow-gray-200 flex justify-end hover:bg-violet-200 transition-all duration-300 border-slate-950 relative ",
+                className: " p-[3px] mt-16 ml-10 border-red-700 w-[600px]  rounded-md",
+                children: [
+                    cartItems.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "text-gray-500 font-semibold text-2xl mt-2 ml-2 w-[620px]",
-                                    children: item.card.info.name
-                                }, void 0, false, {
-                                    fileName: "src/components/Cart.js",
-                                    lineNumber: 34,
-                                    columnNumber: 9
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "w-[110px] rounded-md mt-1",
-                                    children: [
-                                        " ",
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            className: "w-[55px] h-[55px] rounded-[40px]",
-                                            src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + item.card.info.imageId
-                                        }, void 0, false, {
-                                            fileName: "src/components/Cart.js",
-                                            lineNumber: 35,
-                                            columnNumber: 54
-                                        }, undefined),
-                                        "  "
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/Cart.js",
-                                    lineNumber: 35,
-                                    columnNumber: 9
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                    className: "absolute w-4 h-6 right-[-22px] top-5 text-center rounded-md bg-red-400",
-                                    children: [
-                                        " ",
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                            children: "-"
-                                        }, void 0, false, {
-                                            fileName: "src/components/Cart.js",
-                                            lineNumber: 36,
-                                            columnNumber: 100
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/Cart.js",
-                                    lineNumber: 36,
-                                    columnNumber: 10
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                    className: "absolute  w-10 h-[30px] rounded-xl text-center top-4 right-[-65px] bg-green-500 text-white",
-                                    children: item.quan
-                                }, void 0, false, {
-                                    fileName: "src/components/Cart.js",
-                                    lineNumber: 37,
-                                    columnNumber: 10
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                    className: "absolute w-4 h-6 right-[-85px] top-5 bg-gray-400 text-center rounded-md",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                        children: "+"
-                                    }, void 0, false, {
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "  w-12/12 h-[70px] cursor-point  shadow-gray-200 flex justify-end hover:bg-violet-200 transition-all duration-300 border-red-800 relative ",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "text-gray-500 font-semibold text-2xl mt-2 ml-2 w-[620px]",
+                                                children: item.card.info.name
+                                            }, void 0, false, {
+                                                fileName: "src/components/Cart.js",
+                                                lineNumber: 43,
+                                                columnNumber: 9
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "w-[80px] rounded-md mt-1",
+                                                children: [
+                                                    " ",
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                        className: "w-[55px] h-[55px] rounded-[40px]",
+                                                        src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + item.card.info.imageId
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/Cart.js",
+                                                        lineNumber: 44,
+                                                        columnNumber: 53
+                                                    }, undefined),
+                                                    "  "
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/components/Cart.js",
+                                                lineNumber: 44,
+                                                columnNumber: 9
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                className: "absolute w-5 h-7   top-4  right-[-35px] text-center rounded-md bg-green-500 text-white",
+                                                children: [
+                                                    " ",
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                        onClick: ()=>removeItemsfun(item),
+                                                        children: "-"
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/Cart.js",
+                                                        lineNumber: 45,
+                                                        columnNumber: 116
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/components/Cart.js",
+                                                lineNumber: 45,
+                                                columnNumber: 10
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                className: "absolute w-15 h-7   top-4  right-[-360px] text-center rounded-md  text-fuchsia-400 font-bold text-xl",
+                                                children: [
+                                                    item.card.info.price / 100,
+                                                    ".00Rs "
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/components/Cart.js",
+                                                lineNumber: 46,
+                                                columnNumber: 10
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                className: "absolute  w-10 h-7  right-[-80px] rounded-xl text-center top-4  bg-green-500 text-white",
+                                                children: item.quan
+                                            }, void 0, false, {
+                                                fileName: "src/components/Cart.js",
+                                                lineNumber: 47,
+                                                columnNumber: 10
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                className: "absolute w-5 h-7   top-4 right-[-105px] bg-green-500 text-white text-center rounded-md",
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                    onClick: ()=>addItemsfun(item),
+                                                    children: "+"
+                                                }, void 0, false, {
+                                                    fileName: "src/components/Cart.js",
+                                                    lineNumber: 48,
+                                                    columnNumber: 115
+                                                }, undefined)
+                                            }, void 0, false, {
+                                                fileName: "src/components/Cart.js",
+                                                lineNumber: 48,
+                                                columnNumber: 10
+                                            }, undefined)
+                                        ]
+                                    }, item.card.info.id, true, {
                                         fileName: "src/components/Cart.js",
-                                        lineNumber: 38,
-                                        columnNumber: 100
+                                        lineNumber: 42,
+                                        columnNumber: 9
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/components/Cart.js",
-                                    lineNumber: 38,
-                                    columnNumber: 10
+                                    lineNumber: 41,
+                                    columnNumber: 8
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {
+                                    className: "w-full"
+                                }, void 0, false, {
+                                    fileName: "src/components/Cart.js",
+                                    lineNumber: 51,
+                                    columnNumber: 9
                                 }, undefined)
                             ]
-                        }, item.card.info.id, true, {
-                            fileName: "src/components/Cart.js",
-                            lineNumber: 33,
-                            columnNumber: 9
-                        }, undefined)
-                    }, void 0, false))
-            }, void 0, false, {
+                        }, void 0, true)),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "h-[300px]  mt-32",
+                        children: [
+                            "Total BILL",
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "text-fuchsia-800 mt-6",
+                                children: [
+                                    Math.round(subtotal),
+                                    ".00Rs"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/Cart.js",
+                                lineNumber: 60,
+                                columnNumber: 5
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/Cart.js",
+                        lineNumber: 59,
+                        columnNumber: 5
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/Cart.js",
-                lineNumber: 27,
+                lineNumber: 36,
                 columnNumber: 1
             }, undefined)
         ]
@@ -34912,60 +34973,97 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRedux = require("react-redux");
 var _cartSlice = require("../utils.js/cartSlice");
+var _react = require("react");
+var _food = require("./Food");
+var _foodDefault = parcelHelpers.interopDefault(_food);
 var _s = $RefreshSig$();
 const Food_item = ({ items })=>{
     _s();
-    // console.log(items);
     // {menuData.card.info.imageId?x="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"+menuData.card.info.imageId:x="https://i.pinimg.com/1200x/dc/38/85/dc388547a4462f7bbe31c48c8627ddf9.jpg"};
     const dispatch = (0, _reactRedux.useDispatch)();
     const addItemsfun = (item)=>{
         dispatch((0, _cartSlice.addItems)(item));
     };
+    console.log(items);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: items.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: " w-7/12 h-[115px] cursor-pointer bg-green-100 shadow-gray-300 flex justify-between mx-auto mb-1 hover:bg-gray-200 transition-all duration-300 rounded-3xl",
+        children: items.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                 children: [
+                    "(",
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "text-gray-500 font-semibold text-2xl mt-2 ml-2 w-[620px]",
-                        children: item.card.info.name
-                    }, void 0, false, {
-                        fileName: "src/components/Food_item.js",
-                        lineNumber: 14,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "w-[110px] rounded-md mt-2",
+                        className: " w-7/12 h-[115px] cursor-pointer bg-gray-200 shadow-gray-300 flex justify-between  ml-[310px] hover:bg-gray-300 transition-all duration-300 ",
                         children: [
-                            " ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                className: "w-[95px] h-[95px] rounded-[40px]",
-                                src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + item.card.info.imageId
-                            }, void 0, false, {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "text-gray-500 font-semibold text-2xl mt-2 ml-2 w-[620px]",
+                                        children: item.card.info.name
+                                    }, void 0, false, {
+                                        fileName: "src/components/Food_item.js",
+                                        lineNumber: 23,
+                                        columnNumber: 9
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "m-2 text-gray-600",
+                                        children: [
+                                            "Rs-",
+                                            item.card.info.price / 100,
+                                            ".00"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/Food_item.js",
+                                        lineNumber: 24,
+                                        columnNumber: 9
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "ml-2 text-blue-500 font-bold",
+                                        children: [
+                                            " ⭐ ",
+                                            item.card.info.ratings.aggregatedRating.rating ? item.card.info.ratings.aggregatedRating.rating : "N/A"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/Food_item.js",
+                                        lineNumber: 25,
+                                        columnNumber: 9
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
                                 fileName: "src/components/Food_item.js",
-                                lineNumber: 15,
-                                columnNumber: 54
+                                lineNumber: 21,
+                                columnNumber: 8
                             }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                className: "w-[65px] bg-black h-[28px] mt-[-22px] ml-3 absolute rounded-lg font-mono hover:scale-[0.95] transition-all duration-100 text-lg font-semibold text-gray-300 text-center",
-                                onClick: ()=>addItemsfun(item),
-                                children: "Add+"
-                            }, void 0, false, {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "w-[110px] rounded-md mt-2",
+                                children: [
+                                    " ",
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                        className: "w-[95px] h-[95px] rounded-[40px]",
+                                        src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + item.card.info.imageId
+                                    }, void 0, false, {
+                                        fileName: "src/components/Food_item.js",
+                                        lineNumber: 27,
+                                        columnNumber: 54
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _foodDefault.default), {
+                                        data: item
+                                    }, void 0, false, {
+                                        fileName: "src/components/Food_item.js",
+                                        lineNumber: 28,
+                                        columnNumber: 9
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
                                 fileName: "src/components/Food_item.js",
-                                lineNumber: 16,
+                                lineNumber: 27,
                                 columnNumber: 9
                             }, undefined)
                         ]
-                    }, void 0, true, {
+                    }, item.card.info.id, true, {
                         fileName: "src/components/Food_item.js",
-                        lineNumber: 15,
-                        columnNumber: 9
+                        lineNumber: 19,
+                        columnNumber: 10
                     }, undefined)
                 ]
-            }, item.card.info.id, true, {
-                fileName: "src/components/Food_item.js",
-                lineNumber: 13,
-                columnNumber: 29
-            }, undefined))
+            }, void 0, true))
     }, void 0, false);
 };
 _s(Food_item, "rgTLoBID190wEKCp9+G8W6F7A5M=", false, function() {
@@ -34983,7 +35081,7 @@ $RefreshReg$(_c, "Food_item");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-redux":"62sf7","../utils.js/cartSlice":"9fO06","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9fO06":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-redux":"62sf7","../utils.js/cartSlice":"9fO06","react":"21dqq","./Food":"atdmQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9fO06":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addItems", ()=>addItems);
@@ -34997,9 +35095,9 @@ const cartSlice = (0, _toolkit.createSlice)({
     },
     reducers: {
         addItems: (state, action)=>{
-            // console.log(action.payload.card.info);
-            // console.log("oni");
+            console.log(action.payload.card.info);
             const inCart = state.items.findIndex((item)=>item.card.info.id === action.payload.card.info.id);
+            // console.log(item.card.info);
             if (inCart == -1) //   item.qty += payload.qty;
             state.items.push({
                 ...action.payload,
@@ -35009,8 +35107,10 @@ const cartSlice = (0, _toolkit.createSlice)({
             state.items[inCart].quan++;
         // state.items.length++;
         },
-        removeItems: (state)=>{
-            state.items.pop();
+        removeItems: (state, action)=>{
+            const inCart = state.items.findIndex((item)=>item.card.info.id === action.payload.card.info.id);
+            if (state.items[inCart].quan > 1) state.items[inCart].quan--;
+            else state.items.splice(inCart, 1);
         },
         clearCart: (state)=>{
             state.items.length = 0;
@@ -38916,7 +39016,61 @@ function createThunkMiddleware(extraArgument) {
 var thunk = createThunkMiddleware();
 var withExtraArgument = createThunkMiddleware;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"km3Ru":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"atdmQ":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$b1dc = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b1dc.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _reactRedux = require("react-redux");
+var _cartSlice = require("../utils.js/cartSlice");
+var _react = require("react");
+var _s = $RefreshSig$();
+const Food = (props)=>{
+    _s();
+    // const Itemss=useSelector((store)=>store.cart.items)
+    const [text, setText] = (0, _react.useState)("add");
+    const [click, setClick] = (0, _react.useState)(false);
+    const handle = ()=>{};
+    const { data } = props;
+    const dispatch = (0, _reactRedux.useDispatch)();
+    const Itemsfun = (data)=>{
+        click ? dispatch((0, _cartSlice.removeItems)(data)) : dispatch((0, _cartSlice.addItems)(data));
+        click ? setText("add") : setText("added");
+        setClick(!click);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+        className: "w-[65px] bg-black h-[28px] mt-[-22px] ml-3 absolute rounded-lg font-mono hover:scale-[0.95] transition-all duration-100 text-lg font-semibold text-gray-300 text-center",
+        onClick: ()=>{
+            Itemsfun(data);
+        },
+        children: text
+    }, void 0, false, {
+        fileName: "src/components/Food.js",
+        lineNumber: 19,
+        columnNumber: 9
+    }, undefined);
+};
+_s(Food, "uxtHnSdYhjbgr1f09hnKekRrTHI=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch)
+    ];
+});
+_c = Food;
+exports.default = Food;
+var _c;
+$RefreshReg$(_c, "Food");
+
+  $parcel$ReactRefreshHelpers$b1dc.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react-redux":"62sf7","../utils.js/cartSlice":"9fO06","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"km3Ru":[function(require,module,exports) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -39098,6 +39252,145 @@ var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$0606.prelude(module);
 
 try {
+// import RestCard from "./ResCard";
+// import { useState, useEffect} from "react";
+// import  Shimmer from "./Shimmer";
+// import { useParams } from "react-router-dom";
+// import { Link } from "react-router-dom";
+// import City from "./City";
+// const Body=()=>{
+// const {cityId}=useParams(); 
+//     // let resList=[
+//     //     {resname:"Shivam Restaurant",
+//     //     id:1,
+//     //     rating:"4.9",
+//     //     cuisine:"Indian",
+//     //     time:"30min",
+//     //       logo:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/x1w5w54bxzohdd87istc"
+//     //     },
+//     //     {resname:"Comfort INN",
+//     //     id:2,
+//     //     rating:"4.6",
+//     //     cuisine:"Indian",
+//     //     logo:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/xvn2wwrtcvy0zotoxpwq",
+//     //     time:"30min"},
+//     //     {resname:"Swad restaurant",
+//     //     id:3,
+//     //     rating:"3.8",
+//     //     cuisine:"Indian",
+//     //     logo:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/fxb3pkyszn7vpmqnoio8",
+//     //     time:"30min"},
+//     //     {resname:"Sudama",
+//     //     id:4,
+//     //     rating:"3.9",
+//     //     cuisine:"Indian",
+//     //     logo:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/yk2wxuqxwama3i5tcfxo",
+//     //     time:"30min"},
+//     //     {resname:"Atithi",
+//     //     id:5,
+//     //     rating:"4.0",
+//     //     cuisine:"Indian",
+//     //     logo:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/oyyn4tdwxturxbgrrtpe",
+//     //     time:"30min"},
+//     //     {resname:"Dominos",
+//     //     id:6,
+//     //     rating:"3.5",
+//     //     cuisine:"Indian",
+//     //     logo:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_112,h_112,c_fill/zy8gdmkzh7z7bqnscqig",
+//     //     time:"30min"},
+//     //     {resname:"Bhola  ",
+//     //     id:7,
+//     //     rating:"4.2",
+//     //     cuisine:"Indian",
+//     //     logo:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/aokjecpp1uafivrkrqb4",
+//     //     time:"30min"},
+//     //     {resname:"Ajmani cafe",
+//     //     id:8,
+//     //     rating:"3.9",
+//     //     cuisine:"Indian",
+//     //     logo:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/76a05b39545d5a2bf80d6a3e3e46544a",
+//     //     time:"30min"},
+//     //     {resname:"Mughal Dhaba",
+//     //     id:9,
+//     //     rating:"4.3",
+//     //     cuisine:"Indian",
+//     //     logo:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/iidydoy3yxte7eelbbwy",
+//     //     time:"30min"},
+//     //     {resname:"Burger singh",
+//     //     id:10,
+//     //     rating:"3.8",
+//     //     cuisine:"Indian",
+//     //     logo:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/63a5569f00995b064bfd054f3941592b",
+//     //     time:"30min"}
+//     // ];
+//   const cityData={
+//      delhi:"https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+//        Lakhimpur:"https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.9462395&lng=80.7787163&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+//        Mumbai:"https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+//        Lucknow:"https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8466937&lng=80.94616599999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTIN",
+//     };
+//     const [List,setList]=useState([]);
+//     const [city,setCity]=useState("Lakhimpur");
+//     const [cityInput,setCityInput]=useState("");
+//     const [filteredList,setFilteredList]=useState([]);
+//     useEffect(()=>{
+//      const fetchData= async ()=>{
+//     // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?"+"lat=28.7040592&lng=77.10249019999999"+"&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+//     // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179");
+//     const data=await fetch(city);
+//     const Json= await data.json();   
+//     //  "Optional Chaining"
+//     setList(Json?.data?.cards[1]?.card.card?.gridElements?.infoWithStyle?.restaurants); 
+//     setFilteredList(Json?.data?.cards[1]?.card.card?.gridElements?.infoWithStyle?.restaurants); 
+// };
+// fetchData();
+//     },[city]);
+//     if(List.length===0){
+//         return <Shimmer/>;
+//     }
+//     return (
+//         <>
+//         {/* <City/> */}
+//         <div className="body">
+//      {/* <button  onClick={()=>setCity(delhi)} >{city}</button> */}
+//      <input
+//           type="text"
+//           placeholder="Enter city name (delhi, lakhimpur)"
+//           className="rounded-lg w-[300px] bg-gray-100 h-[35px] focus:outline-transparent focus:bg-white focus:shadow-md ml-7"
+//           value={cityInput}
+//           onChange={(e) => setCityInput(e.target.value)}
+//           onKeyUp={(e) => {
+//             if (e.key === "Enter" && cityData[cityInput.toLowerCase()]) {
+//               setCity(cityInput.toLowerCase());
+//             }
+//           }}
+//         />
+//        <input type="text" id ="fltr" placeholder="Find Restaurant" className="rounded-lg w-[400px] bg-gray-100 h-[35px] focus:outline-transparent focus:bg-white focus:shadow-md ml-7 "
+//        onKeyUp={(e)=>{
+// if (e.key === 'Enter') {
+// const n=(document.getElementById("fltr").value);
+// var filteredlist =List.filter((rate)=>  { return rate.info.name.toLowerCase().includes(n.toLowerCase())  }
+//                 );
+// setFilteredList(filteredlist);                
+// }
+// }}
+//                ></input>
+//                <button className="filter-btn bg-gray-100 h-[35px] w-12 my-2 ml-[-7px]"  onClick={(e)=>{
+// const n=(document.getElementById("fltr").value);
+// var filteredlist =List.filter((rate)=>  { return rate.info.name.toLowerCase().includes(n.toLowerCase())  }
+//                 );
+// setFilteredList(filteredlist);                
+// }}>🔍</button>
+//                 <div className="res-container flex  flex-wrap ml-24 mb-[100px]">
+//                  {filteredList.map((restaurant)=> (
+//               <Link   key ={restaurant.info.id} to={"restaurantmenu/"+restaurant.info.id}  > <RestCard  resData={restaurant} /></Link>
+//                  ))}
+//                 </div>
+//                </div>
+//         </>
+//     )
+// }
+// export default Body;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
@@ -39107,188 +39400,120 @@ var _react = require("react");
 var _shimmer = require("./Shimmer");
 var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _reactRouterDom = require("react-router-dom");
-var _city = require("./City");
-var _cityDefault = parcelHelpers.interopDefault(_city);
 var _s = $RefreshSig$();
+const cities = {
+    Delhi: "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+    Lakhimpur: "https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.9462395&lng=80.7787163&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+    Mumbai: "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+    Lucknow: "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8466937&lng=80.94616599999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+};
 const Body = ()=>{
     _s();
-    const { cityId } = (0, _reactRouterDom.useParams)();
-    let resList = [
-        {
-            resname: "Shivam Restaurant",
-            id: 1,
-            rating: "4.9",
-            cuisine: "Indian",
-            time: "30min",
-            logo: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/x1w5w54bxzohdd87istc"
-        },
-        {
-            resname: "Comfort INN",
-            id: 2,
-            rating: "4.6",
-            cuisine: "Indian",
-            logo: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/xvn2wwrtcvy0zotoxpwq",
-            time: "30min"
-        },
-        {
-            resname: "Swad restaurant",
-            id: 3,
-            rating: "3.8",
-            cuisine: "Indian",
-            logo: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/fxb3pkyszn7vpmqnoio8",
-            time: "30min"
-        },
-        {
-            resname: "Sudama",
-            id: 4,
-            rating: "3.9",
-            cuisine: "Indian",
-            logo: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/yk2wxuqxwama3i5tcfxo",
-            time: "30min"
-        },
-        {
-            resname: "Atithi",
-            id: 5,
-            rating: "4.0",
-            cuisine: "Indian",
-            logo: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/oyyn4tdwxturxbgrrtpe",
-            time: "30min"
-        },
-        {
-            resname: "Dominos",
-            id: 6,
-            rating: "3.5",
-            cuisine: "Indian",
-            logo: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_112,h_112,c_fill/zy8gdmkzh7z7bqnscqig",
-            time: "30min"
-        },
-        {
-            resname: "Bhola  ",
-            id: 7,
-            rating: "4.2",
-            cuisine: "Indian",
-            logo: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/aokjecpp1uafivrkrqb4",
-            time: "30min"
-        },
-        {
-            resname: "Ajmani cafe",
-            id: 8,
-            rating: "3.9",
-            cuisine: "Indian",
-            logo: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/76a05b39545d5a2bf80d6a3e3e46544a",
-            time: "30min"
-        },
-        {
-            resname: "Mughal Dhaba",
-            id: 9,
-            rating: "4.3",
-            cuisine: "Indian",
-            logo: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/iidydoy3yxte7eelbbwy",
-            time: "30min"
-        },
-        {
-            resname: "Burger singh",
-            id: 10,
-            rating: "3.8",
-            cuisine: "Indian",
-            logo: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/63a5569f00995b064bfd054f3941592b",
-            time: "30min"
-        }
-    ];
-    const delhi = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
-    const Lakhimpur = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.9462395&lng=80.7787163&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
-    const Mumbai = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
-    const Lucknow = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8466937&lng=80.94616599999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTIN";
+    const { cityId } = (0, _reactRouterDom.useParams)(); // If using city-based routing
+    const [selectedCity, setSelectedCity] = (0, _react.useState)("Delhi"); // Default city
     const [List, setList] = (0, _react.useState)([]);
     const [filteredList, setFilteredList] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         const fetchData = async ()=>{
-            // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?"+"lat=28.7040592&lng=77.10249019999999"+"&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-            // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179");
-            const data = await fetch(Mumbai);
-            const Json = await data.json();
-            //  "Optional Chaining"
-            setList(Json?.data?.cards[1]?.card.card?.gridElements?.infoWithStyle?.restaurants);
-            setFilteredList(Json?.data?.cards[1]?.card.card?.gridElements?.infoWithStyle?.restaurants);
+            try {
+                if (!cities[selectedCity]) return; // Avoid fetching for invalid cities
+                const response = await fetch(cities[selectedCity]);
+                const json = await response.json();
+                const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+                setList(restaurants);
+                setFilteredList(restaurants);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
         };
         fetchData();
-    }, []);
+    }, [
+        selectedCity
+    ]); // Runs when `selectedCity` changes
     if (List.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 125,
-        columnNumber: 16
+        lineNumber: 255,
+        columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "body",
             children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+                    value: selectedCity,
+                    onChange: (e)=>setSelectedCity(e.target.value),
+                    className: "border p-2 rounded",
+                    children: Object.keys(cities).map((city, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                            value: city,
+                            children: city
+                        }, index, false, {
+                            fileName: "src/components/Body.js",
+                            lineNumber: 268,
+                            columnNumber: 13
+                        }, undefined))
+                }, void 0, false, {
+                    fileName: "src/components/Body.js",
+                    lineNumber: 262,
+                    columnNumber: 9
+                }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                     type: "text",
                     id: "fltr",
                     placeholder: "Find Restaurant",
-                    className: "rounded-lg w-[400px] bg-gray-100 h-[35px] focus:outline-transparent focus:bg-white focus:shadow-md ml-7 ",
+                    className: "rounded-lg w-[400px] bg-gray-100 h-[35px] focus:outline-transparent focus:bg-white focus:shadow-md ml-7",
                     onKeyUp: (e)=>{
                         if (e.key === "Enter") {
-                            const n = document.getElementById("fltr").value;
-                            var filteredlist = List.filter((rate)=>{
-                                return rate.info.name.toLowerCase().includes(n.toLowerCase());
-                            });
-                            setFilteredList(filteredlist);
+                            const searchTerm = e.target.value.toLowerCase();
+                            setFilteredList(List.filter((rate)=>rate.info.name.toLowerCase().includes(searchTerm)));
                         }
                     }
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 137,
-                    columnNumber: 8
+                    lineNumber: 275,
+                    columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                     className: "filter-btn bg-gray-100 h-[35px] w-12 my-2 ml-[-7px]",
-                    onClick: (e)=>{
-                        const n = document.getElementById("fltr").value;
-                        var filteredlist = List.filter((rate)=>{
-                            return rate.info.name.toLowerCase().includes(n.toLowerCase());
-                        });
-                        setFilteredList(filteredlist);
+                    onClick: ()=>{
+                        const searchTerm = document.getElementById("fltr").value.toLowerCase();
+                        setFilteredList(List.filter((rate)=>rate.info.name.toLowerCase().includes(searchTerm)));
                     },
                     children: "\uD83D\uDD0D"
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 152,
-                    columnNumber: 16
+                    lineNumber: 288,
+                    columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "res-container flex  flex-wrap ml-6 mb-[100px]",
+                    className: "res-container flex flex-wrap ml-24 mb-[100px]",
                     children: filteredList.map((restaurant)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                             to: "restaurantmenu/" + restaurant.info.id,
-                            children: [
-                                " ",
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _resCardDefault.default), {
-                                    resData: restaurant
-                                }, void 0, false, {
-                                    fileName: "src/components/Body.js",
-                                    lineNumber: 175,
-                                    columnNumber: 94
-                                }, undefined)
-                            ]
-                        }, restaurant.info.id, true, {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _resCardDefault.default), {
+                                resData: restaurant
+                            }, void 0, false, {
+                                fileName: "src/components/Body.js",
+                                lineNumber: 302,
+                                columnNumber: 15
+                            }, undefined)
+                        }, restaurant.info.id, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 175,
-                            columnNumber: 15
+                            lineNumber: 301,
+                            columnNumber: 13
                         }, undefined))
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 168,
-                    columnNumber: 17
+                    lineNumber: 299,
+                    columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/Body.js",
-            lineNumber: 134,
-            columnNumber: 9
+            lineNumber: 260,
+            columnNumber: 7
         }, undefined)
     }, void 0, false);
 };
-_s(Body, "fZSetMJ6qpacz8+tKyHF3XZN77g=", false, function() {
+_s(Body, "6zGI46jnfwsjKcPlLs7Vw+Y4QlM=", false, function() {
     return [
         (0, _reactRouterDom.useParams)
     ];
@@ -40414,27 +40639,26 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const About = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "h-[1000px]",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: "About us"
+            className: "flex justify-center ",
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "w-6/12 h-[300px] my-[120px] ml-14 border-2 shadow-2xl border-white p-4 flex items-center",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    className: "font-semibold text-3xl text-red-400",
+                    children: '"I developed a feature-rich food delivery app designed for seamless ordering and real-time tracking. With a focus on user-friendly design and efficiency, the app connects customers with their favorite restaurants effortlessly."'
                 }, void 0, false, {
                     fileName: "src/components/About.js",
                     lineNumber: 6,
-                    columnNumber: 1
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: "Hello!!"
-                }, void 0, false, {
-                    fileName: "src/components/About.js",
-                    lineNumber: 7,
-                    columnNumber: 1
+                    columnNumber: 19
                 }, undefined)
-            ]
-        }, void 0, true, {
+            }, void 0, false, {
+                fileName: "src/components/About.js",
+                lineNumber: 5,
+                columnNumber: 19
+            }, undefined)
+        }, void 0, false, {
             fileName: "src/components/About.js",
             lineNumber: 4,
-            columnNumber: 1
+            columnNumber: 9
         }, undefined)
     }, void 0, false);
 };
@@ -40528,14 +40752,118 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const Contact = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "h-[1000px]",
-        children: "Contact Page"
-    }, void 0, false, {
-        fileName: "src/components/Contact.js",
-        lineNumber: 3,
-        columnNumber: 1
-    }, undefined);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            " ",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex justify-center items-center",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "w-6/12 h-[400px] mt-[100px] ml-14 border-4 border-blue-400 p-6 pb-8",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "text-2xl mt-10",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    children: [
+                                        "Enter your name:",
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                            type: "text",
+                                            className: "border-2 text-fuchsia-600 ml-8 pl-2 border-purple-500 rounded-md   ",
+                                            placeholder: "john Doe"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Contact.js",
+                                            lineNumber: 14,
+                                            columnNumber: 9
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/Contact.js",
+                                    lineNumber: 13,
+                                    columnNumber: 7
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/components/Contact.js",
+                                lineNumber: 11,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "text-2xl mt-8",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    children: [
+                                        "phone NO:",
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                            type: "number",
+                                            className: "border-2 text-fuchsia-600 focus:border-teal-500 pointer-events-auto ml-8 border-purple-500 rounded-md",
+                                            placeholder: "123XX"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Contact.js",
+                                            lineNumber: 20,
+                                            columnNumber: 9
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/Contact.js",
+                                    lineNumber: 19,
+                                    columnNumber: 7
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/components/Contact.js",
+                                lineNumber: 18,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "text-2xl mt-8",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                        children: [
+                                            "Message:",
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                type: "paragraph",
+                                                className: "border-2 p-1 whitesp000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 h-[150px] text-fuchsia-600 pointer-events-auto ml-8 border-purple-500 rounded-md ml-11 pt-[0px]",
+                                                placeholder: "my name is..."
+                                            }, void 0, false, {
+                                                fileName: "src/components/Contact.js",
+                                                lineNumber: 25,
+                                                columnNumber: 9
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/Contact.js",
+                                        lineNumber: 24,
+                                        columnNumber: 7
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        className: " relative right-[-80px] bottom-[-40px] bg-blue-500 text-white  p-2 rounded-md",
+                                        children: "submit"
+                                    }, void 0, false, {
+                                        fileName: "src/components/Contact.js",
+                                        lineNumber: 27,
+                                        columnNumber: 7
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/Contact.js",
+                                lineNumber: 23,
+                                columnNumber: 13
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/Contact.js",
+                        lineNumber: 10,
+                        columnNumber: 13
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/Contact.js",
+                    lineNumber: 9,
+                    columnNumber: 13
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/Contact.js",
+                lineNumber: 7,
+                columnNumber: 12
+            }, undefined)
+        ]
+    }, void 0, true);
 };
 _c = Contact;
 exports.default = Contact;
@@ -40680,6 +41008,10 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _foodItem = require("./Food_item");
 var _foodItemDefault = parcelHelpers.interopDefault(_foodItem);
+var _reactRedux = require("react-redux");
+var _reactRouterDom = require("react-router-dom");
+var _cart = require("./Cart");
+var _cartDefault = parcelHelpers.interopDefault(_cart);
 var _s = $RefreshSig$();
 const ResCategory = (props)=>{
     _s();
@@ -40690,11 +41022,11 @@ const ResCategory = (props)=>{
         setShow(!show);
         arrow == "\uD83D\uDD3D" ? setArrow("\uD83D\uDD3C") : setArrow("\uD83D\uDD3D");
     };
-    // console.log(catData.card.card.itemCards);
+    const Items = (0, _reactRedux.useSelector)((store)=>store.cart.items);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "w-[840px] h-[60px]  mx-auto bg-red-200  mb-[11px]  flex justify-between cursor-pointer rounded-2xl shadow-lg items-center hover:scale-[1.02] transition-transform duration-300",
+                className: "w-[840px] h-[60px]  mx-auto bg bg-white  my-[10px]  flex justify-between cursor-pointer rounded-s shadow-md items-center hover:scale-[1.02] transition-transform duration-300 hover:shadow-lg hover:border-l-black border-2",
                 onClick: expand,
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -40707,7 +41039,7 @@ const ResCategory = (props)=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/ResCategory.js",
-                        lineNumber: 17,
+                        lineNumber: 20,
                         columnNumber: 1
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -40715,27 +41047,67 @@ const ResCategory = (props)=>{
                         children: arrow
                     }, void 0, false, {
                         fileName: "src/components/ResCategory.js",
-                        lineNumber: 18,
+                        lineNumber: 21,
                         columnNumber: 1
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/ResCategory.js",
-                lineNumber: 15,
+                lineNumber: 18,
                 columnNumber: 9
             }, undefined),
-            "``",
             show && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _foodItemDefault.default), {
                 items: catData.card.card.itemCards
             }, void 0, false, {
                 fileName: "src/components/ResCategory.js",
-                lineNumber: 26,
-                columnNumber: 14
-            }, undefined)
+                lineNumber: 25,
+                columnNumber: 10
+            }, undefined),
+            Items.length != 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "   flex justify-center items-center",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: "/cart",
+                        className: "flex justify-center",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            className: "w-6/12 h-14 rounded-md  bottom-1 bg-green-400  border-[2px]  border-purple-700 fixed z-10 flex justify-around items-center font-bold text-white",
+                            children: [
+                                "View CART",
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    children: [
+                                        Items.length,
+                                        " items added"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/ResCategory.js",
+                                    lineNumber: 29,
+                                    columnNumber: 8
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/ResCategory.js",
+                            lineNumber: 28,
+                            columnNumber: 59
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/ResCategory.js",
+                        lineNumber: 28,
+                        columnNumber: 10
+                    }, undefined)
+                }, void 0, false)
+            }, void 0, false, {
+                fileName: "src/components/ResCategory.js",
+                lineNumber: 27,
+                columnNumber: 26
+            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {}, void 0, false)
         ]
     }, void 0, true);
 };
-_s(ResCategory, "H3zgk1bXtjS+0cMAWwieyGI6mHg=");
+_s(ResCategory, "+5p/ie8RS8XHQFP3pDoY+wwqJ0A=", false, function() {
+    return [
+        (0, _reactRedux.useSelector)
+    ];
+});
 _c = ResCategory;
 exports.default = ResCategory;
 var _c;
@@ -40746,7 +41118,7 @@ $RefreshReg$(_c, "ResCategory");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Food_item":"k3Uqa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dignC":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Food_item":"k3Uqa","react-redux":"62sf7","react-router-dom":"9xmpe","./Cart":"h8J3U","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dignC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _toolkit = require("@reduxjs/toolkit");

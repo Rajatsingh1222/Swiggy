@@ -13,7 +13,7 @@ const RestCard=(props)=>{
         </div>
 
 
-   <div className="card-text-2 ">
+   <div className="card-text-2 ">   
        <div className="style-rating-2 pl-2 text-gray-600"> {resData.info.avgRating }</div>
    <div className="style-rating-3 pl-2 text-gray-600 ">{resData.info.sla.slaString}</div>
         
