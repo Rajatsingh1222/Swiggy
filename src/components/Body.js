@@ -235,6 +235,7 @@ const Body = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+        
       try {
         if (!cities[selectedCity]) return; // Avoid fetching for invalid cities
         const response = await fetch(cities[selectedCity]);
