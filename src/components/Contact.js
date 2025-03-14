@@ -8,7 +8,7 @@ return (
 
             <div className="w-6/12 h-[400px] mt-[100px] ml-14 border-4 border-blue-400 p-6 pb-8">
             <form>
-            <div className="text-2xl mt-10">
+            <div className="text-2xl mt-12">
 
       <label>Enter your name:
         <input type="text" className="border-2 text-fuchsia-600 ml-8 pl-2 border-purple-500 rounded-md
