@@ -27284,7 +27284,7 @@ const Header = ()=>{
     var sum = 0;
     for(x in cartitems)sum += cartitems[x].quan;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "header    flex  justify-between items-center bg-zinc-100 h-[120px] shadow-md w-full mb-0 ",
+        className: "header  flex  justify-between items-center bg-zinc-100 h-[120px] shadow-md w-full mb-0 ",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "  text-3xl px-3  text-center font-bold  text-purple-600 text-opacity-50 mt-[-10px] ml-4 ",
@@ -39410,7 +39410,7 @@ const cities = {
 const Body = ()=>{
     _s();
     const { cityId } = (0, _reactRouterDom.useParams)(); // If using city-based routing
-    const [selectedCity, setSelectedCity] = (0, _react.useState)("Delhi"); // Default city
+    const [selectedCity, setSelectedCity] = (0, _react.useState)("Mumbai"); // Default city
     const [List, setList] = (0, _react.useState)([]);
     const [filteredList, setFilteredList] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
@@ -39432,7 +39432,7 @@ const Body = ()=>{
     ]); // Runs when `selectedCity` changes
     if (List.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 255,
+        lineNumber: 256,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -39448,12 +39448,12 @@ const Body = ()=>{
                             children: city
                         }, index, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 268,
+                            lineNumber: 269,
                             columnNumber: 13
                         }, undefined))
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 262,
+                    lineNumber: 263,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -39469,7 +39469,7 @@ const Body = ()=>{
                     }
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 275,
+                    lineNumber: 276,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -39481,7 +39481,7 @@ const Body = ()=>{
                     children: "\uD83D\uDD0D"
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 288,
+                    lineNumber: 289,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -39492,28 +39492,28 @@ const Body = ()=>{
                                 resData: restaurant
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 302,
+                                lineNumber: 303,
                                 columnNumber: 15
                             }, undefined)
                         }, restaurant.info.id, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 301,
+                            lineNumber: 302,
                             columnNumber: 13
                         }, undefined))
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 299,
+                    lineNumber: 300,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/Body.js",
-            lineNumber: 260,
+            lineNumber: 261,
             columnNumber: 7
         }, undefined)
     }, void 0, false);
 };
-_s(Body, "6zGI46jnfwsjKcPlLs7Vw+Y4QlM=", false, function() {
+_s(Body, "bJAfJms0ZOYRgBDX+yPKRJMCiKE=", false, function() {
     return [
         (0, _reactRouterDom.useParams)
     ];
@@ -39528,7 +39528,7 @@ $RefreshReg$(_c, "Body");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./ResCard":"ezFeH","react":"21dqq","./Shimmer":"g6ZGj","react-router-dom":"9xmpe","./City":"gm8zj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ezFeH":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./ResCard":"ezFeH","react":"21dqq","./Shimmer":"g6ZGj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ezFeH":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$40f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -40488,54 +40488,7 @@ $RefreshReg$(_c, "Shimmer");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gm8zj":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$605e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$605e.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _reactRouterDom = require("react-router-dom");
-const City = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        class: "dropdown",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                className: "dropbtn",
-                children: "Dropdown"
-            }, void 0, false, {
-                fileName: "src/components/City.js",
-                lineNumber: 8,
-                columnNumber: 9
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "dropdown-content"
-            }, void 0, false, {
-                fileName: "src/components/City.js",
-                lineNumber: 9,
-                columnNumber: 9
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/City.js",
-        lineNumber: 7,
-        columnNumber: 9
-    }, undefined);
-};
-_c = City;
-exports.default = City;
-var _c;
-$RefreshReg$(_c, "City");
-
-  $parcel$ReactRefreshHelpers$605e.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8pPOA":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8pPOA":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$bc7c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -40643,7 +40596,7 @@ const About = ()=>{
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "w-6/12 h-[300px] my-[120px] ml-14 border-2 shadow-2xl border-white p-4 flex items-center",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    className: "font-semibold text-3xl text-red-400",
+                    className: "font-semibold text-3xl text-red-5c00",
                     children: '"I developed a feature-rich food delivery app designed for seamless ordering and real-time tracking. With a focus on user-friendly design and efficiency, the app connects customers with their favorite restaurants effortlessly."'
                 }, void 0, false, {
                     fileName: "src/components/About.js",
@@ -40768,7 +40721,7 @@ const Contact = ()=>{
                                         "Enter your name:",
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                             type: "text",
-                                            className: "border-2 text-fuchsia-600 ml-8 pl-2 border-purple-500 rounded-md   ",
+                                            className: "border-2 text-fuchsia-600 ml-8 pl-2 border-purple-500 rounded-md ",
                                             placeholder: "john Doe"
                                         }, void 0, false, {
                                             fileName: "src/components/Contact.js",
@@ -41118,7 +41071,54 @@ $RefreshReg$(_c, "ResCategory");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Food_item":"k3Uqa","react-redux":"62sf7","react-router-dom":"9xmpe","./Cart":"h8J3U","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dignC":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Food_item":"k3Uqa","react-redux":"62sf7","react-router-dom":"9xmpe","./Cart":"h8J3U","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gm8zj":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$605e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$605e.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _reactRouterDom = require("react-router-dom");
+const City = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        class: "dropdown",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                className: "dropbtn",
+                children: "Dropdown"
+            }, void 0, false, {
+                fileName: "src/components/City.js",
+                lineNumber: 8,
+                columnNumber: 9
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "dropdown-content"
+            }, void 0, false, {
+                fileName: "src/components/City.js",
+                lineNumber: 9,
+                columnNumber: 9
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/City.js",
+        lineNumber: 7,
+        columnNumber: 9
+    }, undefined);
+};
+_c = City;
+exports.default = City;
+var _c;
+$RefreshReg$(_c, "City");
+
+  $parcel$ReactRefreshHelpers$605e.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dignC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _toolkit = require("@reduxjs/toolkit");

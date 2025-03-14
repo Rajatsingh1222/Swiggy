@@ -229,7 +229,7 @@ const cities = {
 
 const Body = () => {
   const { cityId } = useParams(); // If using city-based routing
-  const [selectedCity, setSelectedCity] = useState("Delhi"); // Default city
+  const [selectedCity, setSelectedCity] = useState("Mumbai"); // Default city
   const [List, setList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
 
