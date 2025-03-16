@@ -1,12 +1,18 @@
-import {useState} from "react";
+import {useState,useContext} from "react";
 import Food_item from "./Food_item";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+// import { UserContext } from "./RestMenu";
 import Cart from "./Cart";
 const ResCategory=(props)=>{
     const {catData}=props;
+    //  const x= catData.filter((y)=>y.card)
+    console.log(catData);
+    // let veg = useContext(UserContext);
+
 const [show,setShow]=useState(false);
 const [arrow,setArrow]=useState("🔽")
+
 const expand=()=>{
     setShow(!show);
     arrow=="🔽"?setArrow("🔼"):setArrow("🔽");
@@ -18,7 +24,10 @@ const Items=useSelector((store)=>store.cart.items)
         <div className="w-[840px] h-[60px]  mx-auto bg bg-white  my-[10px]  flex justify-between cursor-pointer rounded-s shadow-md items-center hover:scale-[1.02] transition-transform duration-300 hover:shadow-lg hover:border-l-black border-2"  onClick={expand} >
 
 <div className="text-gray-600 font-semibold text-lg ml-3">{catData.card.card.title}   ({catData.card.card.itemCards.length})</div>
+<div className="flex">
+
 <div className="my-auto mx-3">{arrow}</div>
+</div>
   
 
         </div>

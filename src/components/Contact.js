@@ -1,4 +1,12 @@
+import { useNavigate } from "react-router-dom";
 const Contact=()=>{
+
+
+  const navigate =useNavigate();
+  const navigation=()=>{
+
+    navigate("/")
+  }
 return (
 
 
@@ -22,9 +30,9 @@ return (
             </div>
             <div className="text-2xl mt-8">
       <label>Message:
-        <input type="paragraph"className="border-2 p-1 whitesp000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 h-[150px] text-fuchsia-600 pointer-events-auto ml-8 border-purple-500 rounded-md ml-11 pt-[0px]" placeholder="my name is..."/>
+        <input type="paragraph"className="border-2 p-1  h-[150px] text-fuchsia-600 pointer-events-auto ml-8 border-purple-500 rounded-md ml-11 pt-[0px]" placeholder="my name is..."/>
       </label>
-      <button className=" relative right-[-80px] bottom-[-40px] bg-blue-500 text-white  p-2 rounded-md">submit</button>
+      <button  onClick={navigation} className=" relative right-[-80px] bottom-[-40px] bg-blue-500 text-white  p-2 rounded-md">submit</button>
             </div>
       
     </form>

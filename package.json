@@ -2,7 +2,6 @@
   "name": "react",
   "version": "1.0.0",
   "description": "This is namaste react.",
-  "main": "App.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
@@ -31,9 +30,10 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
+    "firebase": "^11.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.0.4",
-    "react-router-dom": "^6.18.0"
+    "react-router-dom": "^6.30.0"
   }
 }
