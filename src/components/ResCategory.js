@@ -21,7 +21,7 @@ const Items=useSelector((store)=>store.cart.items)
 
     return (
         <>
-        <div className="w-[840px] h-[60px]  mx-auto bg bg-white  my-[10px]  flex justify-between cursor-pointer rounded-s shadow-md items-center hover:scale-[1.02] transition-transform duration-300 hover:shadow-lg hover:border-l-4 border-l-red-500"  onClick={expand} >
+        <div className="w-[840px] h-[60px]  mx-auto bg bg-white  my-[10px]  flex justify-between cursor-pointer rounded-s shadow-md items-center hover:scale-[1.02] transition-transform duration-300 hover:shadow-lg hover:border-l-4 border-l-green-500"  onClick={expand} >
 
 <div className="text-gray-600 font-semibold text-lg ml-3">{catData.card.card.title}   ({catData.card.card.itemCards.length})</div>
 <div className="flex">
