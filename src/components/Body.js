@@ -1,13 +1,4 @@
 
-
-
-
-
-
-
-
-
-
 import RestCard from "./ResCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
