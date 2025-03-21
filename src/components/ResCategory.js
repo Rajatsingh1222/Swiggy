@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 // import { UserContext } from "./RestMenu";
 import Cart from "./Cart";
 const ResCategory=(props)=>{
+    // console.log(props)
     const {catData}=props;
     //  const x= catData.filter((y)=>y.card)
-    console.log(catData);
+    // console.log(catData);
     // let veg = useContext(UserContext);
 
 const [show,setShow]=useState(false);
@@ -31,7 +32,7 @@ const Items=useSelector((store)=>store.cart.items)
   
 
         </div>
-{show && <Food_item items={catData.card.card.itemCards} />}
+{show && <Food_item items={catData.card.card.itemCards}  />}
 
        { Items.length!=0?<div className="   flex justify-center items-center">
        <><Link to="/cart" className="flex justify-center"><button className="w-6/12 h-14 rounded-md  bottom-1 bg-green-400  border-[2px]  border-purple-700 fixed z-10 flex justify-around items-center font-bold text-white">View CART 

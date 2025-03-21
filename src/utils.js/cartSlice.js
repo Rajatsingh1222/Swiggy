@@ -14,7 +14,7 @@ const cartSlice=createSlice({
             // console.log(item.card.info);
             if (inCart==-1) {
             //   item.qty += payload.qty;
-            state.items.push({...action.payload,quan:1});
+            state.items.push({...action.payload,quan:1,ID:10});
         } 
         else {
             // console.log(inCart);

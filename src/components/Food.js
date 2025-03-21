@@ -1,9 +1,11 @@
 import { useDispatch } from "react-redux";
 import { addItems ,removeItems} from "../utils.js/cartSlice";
-import { useState } from "react";
+import { useState,useContext } from "react";
+import { UserContext } from "./RestMenu";
 const Food=(props)=>{
     // const Itemss=useSelector((store)=>store.cart.items)
-
+    const id = useContext(UserContext);
+    console.log(id)
     const[text,setText]=useState("add");
     const[click,setClick]=useState(false);
     const handle=()=>{
@@ -11,7 +13,7 @@ const Food=(props)=>{
     const {data}=props;
     const dispatch=useDispatch();
     const  Itemsfun=(data)=>{
-        click?dispatch(removeItems(data)):dispatch(addItems(data));
+        click?dispatch(removeItems(data)):dispatch(addItems(data,id));
         click?setText("add"):setText("added");
         setClick(!click);
 };

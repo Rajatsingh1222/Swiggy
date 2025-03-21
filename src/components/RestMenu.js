@@ -18,6 +18,8 @@ const RestMenu=()=>{
     // const [menuFilteredItems,setMenuFilteredItems]=useState([]);
     const [type,setType]=useState("veg🔍");
         const {id}=useParams(); 
+        
+        console.log(id);
 
 
     useEffect(()=>{
@@ -49,9 +51,10 @@ const RestMenu=()=>{
  
     return (
         <>
+                <UserContext.Provider value={id}>
                 <UserContext.Provider value={veg}>
 
-<div className="bg-green-500 inline-block w-[100px] rounded-xl text-white p-1 pl-2 cursor-pointer m-4"onClick={handleVeg} >{vegtext}</div>
+<div className="bg-green-500 inline-block w-[80px] rounded-xl text-white p-1 pl-2 cursor-pointer m-4"onClick={handleVeg} >{vegtext}</div>
     <div className="menu-card text-gray-700 text-lg font-semibold w-[900px] h-[130px] bg-purple-300 shadow-[22px_22px_83px_#c1c1c1,-22px_-22px_83px_#ffffff]  text-center  mx-auto  my-5 rounded-lg">
     <div className="font-bold text-3xl">{name}</div>
     <div>{areaName+"📍`"}</div>
@@ -62,12 +65,14 @@ const RestMenu=()=>{
 
 {
 category.map((filcategory)=>(
-(filcategory.card.card.itemCards.length>0)?<ResCategory key={filcategory.card.card.title} catData={filcategory}/>:<></>
+    
+(filcategory.card.card.itemCards.length>0)?<ResCategory key={filcategory.card.card.title} catData={filcategory}  />:<></>
 ))
 }
 
     
 
+</UserContext.Provider>
 </UserContext.Provider>
 
         </>

@@ -33724,6 +33724,7 @@ const Cart = ()=>{
         lineNumber: 27,
         columnNumber: 11
     }, undefined);
+    console.log(cartItems);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -33734,12 +33735,12 @@ const Cart = ()=>{
                     children: " Clear Cart"
                 }, void 0, false, {
                     fileName: "src/components/Cart.js",
-                    lineNumber: 33,
+                    lineNumber: 34,
                     columnNumber: 6
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Cart.js",
-                lineNumber: 31,
+                lineNumber: 32,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -33756,7 +33757,7 @@ const Cart = ()=>{
                                                 children: item.card.info.name
                                             }, void 0, false, {
                                                 fileName: "src/components/Cart.js",
-                                                lineNumber: 43,
+                                                lineNumber: 44,
                                                 columnNumber: 9
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -33768,14 +33769,14 @@ const Cart = ()=>{
                                                         src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + item.card.info.imageId
                                                     }, void 0, false, {
                                                         fileName: "src/components/Cart.js",
-                                                        lineNumber: 44,
+                                                        lineNumber: 45,
                                                         columnNumber: 53
                                                     }, undefined),
                                                     "  "
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/components/Cart.js",
-                                                lineNumber: 44,
+                                                lineNumber: 45,
                                                 columnNumber: 9
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -33787,13 +33788,13 @@ const Cart = ()=>{
                                                         children: "-"
                                                     }, void 0, false, {
                                                         fileName: "src/components/Cart.js",
-                                                        lineNumber: 45,
+                                                        lineNumber: 46,
                                                         columnNumber: 116
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/components/Cart.js",
-                                                lineNumber: 45,
+                                                lineNumber: 46,
                                                 columnNumber: 10
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -33804,7 +33805,7 @@ const Cart = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/components/Cart.js",
-                                                lineNumber: 46,
+                                                lineNumber: 47,
                                                 columnNumber: 10
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -33812,7 +33813,7 @@ const Cart = ()=>{
                                                 children: item.quan
                                             }, void 0, false, {
                                                 fileName: "src/components/Cart.js",
-                                                lineNumber: 47,
+                                                lineNumber: 48,
                                                 columnNumber: 10
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -33822,30 +33823,30 @@ const Cart = ()=>{
                                                     children: "+"
                                                 }, void 0, false, {
                                                     fileName: "src/components/Cart.js",
-                                                    lineNumber: 48,
+                                                    lineNumber: 49,
                                                     columnNumber: 115
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/components/Cart.js",
-                                                lineNumber: 48,
+                                                lineNumber: 49,
                                                 columnNumber: 10
                                             }, undefined)
                                         ]
                                     }, item.card.info.id, true, {
                                         fileName: "src/components/Cart.js",
-                                        lineNumber: 42,
+                                        lineNumber: 43,
                                         columnNumber: 9
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/components/Cart.js",
-                                    lineNumber: 41,
+                                    lineNumber: 42,
                                     columnNumber: 8
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {
                                     className: "w-full"
                                 }, void 0, false, {
                                     fileName: "src/components/Cart.js",
-                                    lineNumber: 51,
+                                    lineNumber: 52,
                                     columnNumber: 9
                                 }, undefined)
                             ]
@@ -33862,19 +33863,19 @@ const Cart = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/Cart.js",
-                                lineNumber: 60,
+                                lineNumber: 61,
                                 columnNumber: 5
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Cart.js",
-                        lineNumber: 59,
+                        lineNumber: 60,
                         columnNumber: 5
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Cart.js",
-                lineNumber: 36,
+                lineNumber: 37,
                 columnNumber: 1
             }, undefined)
         ]
@@ -35198,7 +35199,8 @@ const cartSlice = (0, _toolkit.createSlice)({
             if (inCart == -1) //   item.qty += payload.qty;
             state.items.push({
                 ...action.payload,
-                quan: 1
+                quan: 1,
+                ID: 10
             });
             else // console.log(inCart);
             state.items[inCart].quan++;
@@ -39143,6 +39145,7 @@ const RestMenu = ()=>{
     // const [menuFilteredItems,setMenuFilteredItems]=useState([]);
     const [type, setType] = (0, _react.useState)("veg\uD83D\uDD0D");
     const { id } = (0, _reactRouterDom.useParams)();
+    console.log(id);
     (0, _react.useEffect)(()=>{
         Menu();
     }, []);
@@ -39154,19 +39157,19 @@ const RestMenu = ()=>{
     };
     if (menuList === null) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/RestMenu.js",
-        lineNumber: 32,
+        lineNumber: 34,
         columnNumber: 34
     }, undefined);
     if (itemCards === null) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/RestMenu.js",
-        lineNumber: 33,
+        lineNumber: 35,
         columnNumber: 32
     }, undefined);
     const { name, areaName, cuisines, costForTwoMessage } = menuList?.cards[2]?.card?.card?.info;
     var { itemCards } = menuItems?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
     if (itemCards == []) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/RestMenu.js",
-        lineNumber: 37,
+        lineNumber: 39,
         columnNumber: 16
     }, undefined);
     const category = menuItems?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
@@ -39176,66 +39179,73 @@ const RestMenu = ()=>{
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(UserContext.Provider, {
-            value: veg,
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "bg-green-500 inline-block w-[100px] rounded-xl text-white p-1 pl-2 cursor-pointer m-4",
-                    onClick: handleVeg,
-                    children: vegtext
-                }, void 0, false, {
-                    fileName: "src/components/RestMenu.js",
-                    lineNumber: 54,
-                    columnNumber: 1
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "menu-card text-gray-700 text-lg font-semibold w-[900px] h-[130px] bg-purple-300 shadow-[22px_22px_83px_#c1c1c1,-22px_-22px_83px_#ffffff]  text-center  mx-auto  my-5 rounded-lg",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "font-bold text-3xl",
-                            children: name
-                        }, void 0, false, {
-                            fileName: "src/components/RestMenu.js",
-                            lineNumber: 56,
-                            columnNumber: 5
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            children: areaName + "\uD83D\uDCCD`"
-                        }, void 0, false, {
-                            fileName: "src/components/RestMenu.js",
-                            lineNumber: 57,
-                            columnNumber: 5
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            children: cuisines.join(", ")
-                        }, void 0, false, {
-                            fileName: "src/components/RestMenu.js",
-                            lineNumber: 58,
-                            columnNumber: 5
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            children: costForTwoMessage
-                        }, void 0, false, {
-                            fileName: "src/components/RestMenu.js",
-                            lineNumber: 59,
-                            columnNumber: 5
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/RestMenu.js",
-                    lineNumber: 55,
-                    columnNumber: 5
-                }, undefined),
-                category.map((filcategory)=>filcategory.card.card.itemCards.length > 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _resCategoryDefault.default), {
-                        catData: filcategory
-                    }, filcategory.card.card.title, false, {
+            value: id,
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(UserContext.Provider, {
+                value: veg,
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "bg-green-500 inline-block w-[80px] rounded-xl text-white p-1 pl-2 cursor-pointer m-4",
+                        onClick: handleVeg,
+                        children: vegtext
+                    }, void 0, false, {
                         fileName: "src/components/RestMenu.js",
-                        lineNumber: 65,
-                        columnNumber: 44
-                    }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {}, void 0, false))
-            ]
-        }, void 0, true, {
+                        lineNumber: 57,
+                        columnNumber: 1
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "menu-card text-gray-700 text-lg font-semibold w-[900px] h-[130px] bg-purple-300 shadow-[22px_22px_83px_#c1c1c1,-22px_-22px_83px_#ffffff]  text-center  mx-auto  my-5 rounded-lg",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "font-bold text-3xl",
+                                children: name
+                            }, void 0, false, {
+                                fileName: "src/components/RestMenu.js",
+                                lineNumber: 59,
+                                columnNumber: 5
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: areaName + "\uD83D\uDCCD`"
+                            }, void 0, false, {
+                                fileName: "src/components/RestMenu.js",
+                                lineNumber: 60,
+                                columnNumber: 5
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: cuisines.join(", ")
+                            }, void 0, false, {
+                                fileName: "src/components/RestMenu.js",
+                                lineNumber: 61,
+                                columnNumber: 5
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: costForTwoMessage
+                            }, void 0, false, {
+                                fileName: "src/components/RestMenu.js",
+                                lineNumber: 62,
+                                columnNumber: 5
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/RestMenu.js",
+                        lineNumber: 58,
+                        columnNumber: 5
+                    }, undefined),
+                    category.map((filcategory)=>filcategory.card.card.itemCards.length > 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _resCategoryDefault.default), {
+                            catData: filcategory
+                        }, filcategory.card.card.title, false, {
+                            fileName: "src/components/RestMenu.js",
+                            lineNumber: 69,
+                            columnNumber: 44
+                        }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {}, void 0, false))
+                ]
+            }, void 0, true, {
+                fileName: "src/components/RestMenu.js",
+                lineNumber: 55,
+                columnNumber: 17
+            }, undefined)
+        }, void 0, false, {
             fileName: "src/components/RestMenu.js",
-            lineNumber: 52,
+            lineNumber: 54,
             columnNumber: 17
         }, undefined)
     }, void 0, false);
@@ -40275,9 +40285,10 @@ var _cartDefault = parcelHelpers.interopDefault(_cart);
 var _s = $RefreshSig$();
 const ResCategory = (props)=>{
     _s();
+    // console.log(props)
     const { catData } = props;
     //  const x= catData.filter((y)=>y.card)
-    console.log(catData);
+    // console.log(catData);
     // let veg = useContext(UserContext);
     const [show, setShow] = (0, _react.useState)(false);
     const [arrow, setArrow] = (0, _react.useState)("\uD83D\uDD3D");
@@ -40302,7 +40313,7 @@ const ResCategory = (props)=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/ResCategory.js",
-                        lineNumber: 26,
+                        lineNumber: 27,
                         columnNumber: 1
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -40312,25 +40323,25 @@ const ResCategory = (props)=>{
                             children: arrow
                         }, void 0, false, {
                             fileName: "src/components/ResCategory.js",
-                            lineNumber: 29,
+                            lineNumber: 30,
                             columnNumber: 1
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/ResCategory.js",
-                        lineNumber: 27,
+                        lineNumber: 28,
                         columnNumber: 1
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/ResCategory.js",
-                lineNumber: 24,
+                lineNumber: 25,
                 columnNumber: 9
             }, undefined),
             show && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _foodItemDefault.default), {
                 items: catData.card.card.itemCards
             }, void 0, false, {
                 fileName: "src/components/ResCategory.js",
-                lineNumber: 34,
+                lineNumber: 35,
                 columnNumber: 10
             }, undefined),
             Items.length != 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -40350,24 +40361,24 @@ const ResCategory = (props)=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/ResCategory.js",
-                                    lineNumber: 38,
+                                    lineNumber: 39,
                                     columnNumber: 8
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/ResCategory.js",
-                            lineNumber: 37,
+                            lineNumber: 38,
                             columnNumber: 59
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/ResCategory.js",
-                        lineNumber: 37,
+                        lineNumber: 38,
                         columnNumber: 10
                     }, undefined)
                 }, void 0, false)
             }, void 0, false, {
                 fileName: "src/components/ResCategory.js",
-                lineNumber: 36,
+                lineNumber: 37,
                 columnNumber: 26
             }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {}, void 0, false)
         ]
@@ -40401,17 +40412,20 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRedux = require("react-redux");
 var _cartSlice = require("../utils.js/cartSlice");
 var _react = require("react");
+var _restMenu = require("./RestMenu");
 var _s = $RefreshSig$();
 const Food = (props)=>{
     _s();
     // const Itemss=useSelector((store)=>store.cart.items)
+    const id = (0, _react.useContext)((0, _restMenu.UserContext));
+    console.log(id);
     const [text, setText] = (0, _react.useState)("add");
     const [click, setClick] = (0, _react.useState)(false);
     const handle = ()=>{};
     const { data } = props;
     const dispatch = (0, _reactRedux.useDispatch)();
     const Itemsfun = (data)=>{
-        click ? dispatch((0, _cartSlice.removeItems)(data)) : dispatch((0, _cartSlice.addItems)(data));
+        click ? dispatch((0, _cartSlice.removeItems)(data)) : dispatch((0, _cartSlice.addItems)(data, id));
         click ? setText("add") : setText("added");
         setClick(!click);
     };
@@ -40423,11 +40437,11 @@ const Food = (props)=>{
         children: text
     }, void 0, false, {
         fileName: "src/components/Food.js",
-        lineNumber: 19,
+        lineNumber: 21,
         columnNumber: 9
     }, undefined);
 };
-_s(Food, "uxtHnSdYhjbgr1f09hnKekRrTHI=", false, function() {
+_s(Food, "Tk2pMoUHOLfWlGEL/FicJvPTA7c=", false, function() {
     return [
         (0, _reactRedux.useDispatch)
     ];
@@ -40442,7 +40456,7 @@ $RefreshReg$(_c, "Food");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-redux":"62sf7","../utils.js/cartSlice":"9fO06","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"g24Wj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-redux":"62sf7","../utils.js/cartSlice":"9fO06","react":"21dqq","./RestMenu":"3sbxJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"g24Wj":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4fcb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

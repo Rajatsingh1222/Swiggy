@@ -26,6 +26,7 @@ cartItems.map((item) => {
 if(cartItems.length===0){
    return <EmptyCart/>;
 }
+console.log(cartItems)
     return (
         <>
         <div className="relative">
