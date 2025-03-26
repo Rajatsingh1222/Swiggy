@@ -27,7 +27,6 @@ const AppLayout=()=>{
     <Header/>
     <Outlet/>
     <Footer/>
-    {/* <About/> */}
         </div>
         </Provider>
     );
