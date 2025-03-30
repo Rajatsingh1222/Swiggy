@@ -32405,7 +32405,7 @@ var _emptyCartDefault = parcelHelpers.interopDefault(_emptyCart);
 var _s = $RefreshSig$();
 const Cart = ()=>{
     _s();
-    const cartItems = (0, _reactRedux.useSelector)((store)=>store.cart.items);
+    const cartItems = (0, _reactRedux.useSelector)((store)=>store?.cart?.items);
     //  console.log(cartItems);
     const dispatch = (0, _reactRedux.useDispatch)();
     const clearItemsfun = ()=>{
@@ -32420,8 +32420,8 @@ const Cart = ()=>{
     // const quant=useSelector((store)=>store.cart.items.card)
     // console.log(cartItems)
     let subtotal = 0;
-    cartItems.map((item)=>{
-        return subtotal += (item.card.info.price, item.card.info.price / 100) * item.quan;
+    cartItems?.map((item)=>{
+        return subtotal += (item?.card?.info?.price / 100 === NaN ? item?.card?.info?.defaultPrice / 100 : item?.card?.info?.price / 100) * item?.quan;
     });
     if (cartItems.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _emptyCartDefault.default), {}, void 0, false, {
         fileName: "src/components/Cart.js",
@@ -32450,11 +32450,11 @@ const Cart = ()=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: " p-[3px] mt-16 ml-10 border-red-700 w-[600px]  rounded-md",
                 children: [
-                    cartItems.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                    cartItems.map((item, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "  w-12/12 h-[70px] cursor-point  shadow-gray-200 flex justify-end hover:bg-violet-200 transition-all duration-300 border-red-800 relative ",
+                                        className: "  w-12/12 h-[70px] cursor-point  shadow-gray-200 flex justify-end hover:bg-violet-200 transition-all duration-300 rounded-md relative ",
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                 className: "text-gray-500 font-semibold text-2xl mt-2 ml-2 w-[620px]",
@@ -32536,12 +32536,12 @@ const Cart = ()=>{
                                                 columnNumber: 10
                                             }, undefined)
                                         ]
-                                    }, item.card.info.id, true, {
+                                    }, item?.card?.info?.id, true, {
                                         fileName: "src/components/Cart.js",
                                         lineNumber: 43,
                                         columnNumber: 9
                                     }, undefined)
-                                }, void 0, false, {
+                                }, index, false, {
                                     fileName: "src/components/Cart.js",
                                     lineNumber: 42,
                                     columnNumber: 8
@@ -32556,11 +32556,11 @@ const Cart = ()=>{
                             ]
                         }, void 0, true)),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "h-[300px]  mt-32",
+                        className: "h-[100px]  mt-32 bg-gradient-to-r from-purple-300 text-white font-bold",
                         children: [
                             "Total BILL",
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "text-fuchsia-800 mt-6",
+                                className: "text-fuchsia-800 mt-3",
                                 children: [
                                     Math.round(subtotal),
                                     ".00Rs"
@@ -37801,7 +37801,7 @@ const RestMenu = ()=>{
                         columnNumber: 1
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "menu-card text-gray-700 text-lg font-semibold w-[900px] h-[130px] bg-purple-300 shadow-[22px_22px_83px_#c1c1c1,-22px_-22px_83px_#ffffff]  text-center  mx-auto  my-5 rounded-lg",
+                        className: "menu-card text-gray-700 text-lg font-semibold w-[900px] h-[130px] bg-orange-300 shadow-[22px_22px_83px_#c1c1c1,-22px_-22px_83px_#ffffff]  text-center  mx-auto  my-5 rounded-lg",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "font-bold text-3xl",
@@ -41063,7 +41063,7 @@ const ResCategory = (props)=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/ResCategory.js",
-                        lineNumber: 27,
+                        lineNumber: 30,
                         columnNumber: 1
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -41073,35 +41073,35 @@ const ResCategory = (props)=>{
                             children: arrow
                         }, void 0, false, {
                             fileName: "src/components/ResCategory.js",
-                            lineNumber: 30,
+                            lineNumber: 33,
                             columnNumber: 1
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/ResCategory.js",
-                        lineNumber: 28,
+                        lineNumber: 31,
                         columnNumber: 1
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/ResCategory.js",
-                lineNumber: 25,
+                lineNumber: 28,
                 columnNumber: 9
             }, undefined),
             show && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _foodItemDefault.default), {
                 items: catData.card.card.itemCards
             }, void 0, false, {
                 fileName: "src/components/ResCategory.js",
-                lineNumber: 35,
+                lineNumber: 38,
                 columnNumber: 10
             }, undefined),
-            Items.length != 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            Items.length > 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "   flex justify-center items-center",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "/cart",
                         className: "flex justify-center",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            className: "w-6/12 h-14 rounded-md  bottom-1 bg-green-400  border-[2px]  border-purple-700 fixed z-10 flex justify-around items-center font-bold text-white",
+                            className: "w-6/12 h-14 rounded-md  bottom-1 bg-green-400  fixed z-10 flex justify-around items-center font-bold text-white",
                             children: [
                                 "View CART",
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -41111,25 +41111,25 @@ const ResCategory = (props)=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/ResCategory.js",
-                                    lineNumber: 39,
+                                    lineNumber: 42,
                                     columnNumber: 8
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/ResCategory.js",
-                            lineNumber: 38,
+                            lineNumber: 41,
                             columnNumber: 59
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/ResCategory.js",
-                        lineNumber: 38,
+                        lineNumber: 41,
                         columnNumber: 10
                     }, undefined)
                 }, void 0, false)
             }, void 0, false, {
                 fileName: "src/components/ResCategory.js",
-                lineNumber: 37,
-                columnNumber: 26
+                lineNumber: 40,
+                columnNumber: 29
             }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {}, void 0, false)
         ]
     }, void 0, true);
@@ -41505,7 +41505,7 @@ const Footer = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "w-full bg-black h-[200px] sticky flex justify-center items-center text-white mt-[100px] mb-0",
+                className: "w-full bg-black h-[200px]  flex justify-center items-center text-white  mb-0 mt-[200px]",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
                         href: "https://www.instagram.com/___rajatsingh/",

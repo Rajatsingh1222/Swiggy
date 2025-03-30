@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addItems, clearCart,removeItems } from "../utils.js/cartSlice";
 import EmptyCart from "./EmptyCart";
 const Cart=()=>{
-   const cartItems=useSelector((store)=>store.cart.items);
+   const cartItems=useSelector((store)=>store?.cart?.items);
    //  console.log(cartItems);
    const dispatch=useDispatch();
    const  clearItemsfun=()=>{
@@ -19,8 +19,8 @@ const  removeItemsfun=(item)=>{
 // const quant=useSelector((store)=>store.cart.items.card)
 // console.log(cartItems)
 let subtotal=0;
-cartItems.map((item) => {
-   return (subtotal += ((item.card.info.price)/100===NaN?(item.card.info.defaultPrice)/100:(item.card.info.price)/100)*item.quan);
+cartItems?.map((item) => {
+   return (subtotal += ((item?.card?.info?.price)/100===NaN?(item?.card?.info?.defaultPrice)/100:(item?.card?.info?.price)/100)*item?.quan);
  });
 
 if(cartItems.length===0){
@@ -35,12 +35,12 @@ console.log(cartItems)
         </div>
 
 <div className=" p-[3px] mt-16 ml-10 border-red-700 w-[600px]  rounded-md">
-    {cartItems.map((item)=> 
+    {cartItems.map((item,index)=> 
         (
            <>
 
-       <div>
-        <div key={item.card.info.id} className="  w-12/12 h-[70px] cursor-point  shadow-gray-200 flex justify-end hover:bg-violet-200 transition-all duration-300 border-red-800 relative ">
+       <div key={index}>
+        <div key={item?.card?.info?.id} className="  w-12/12 h-[70px] cursor-point  shadow-gray-200 flex justify-end hover:bg-violet-200 transition-all duration-300 rounded-md relative ">
         <div className="text-gray-500 font-semibold text-2xl mt-2 ml-2 w-[620px]">{item.card.info.name}</div>
         <div className="w-[80px] rounded-md mt-1" > <img   className="w-[55px] h-[55px] rounded-[40px]" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+item.card.info.imageId}/>  </div>
          <span className="absolute w-5 h-7   top-4  right-[-35px] text-center rounded-md bg-green-500 text-white"> <button onClick={()=>removeItemsfun(item)}>-</button></span>
@@ -57,8 +57,8 @@ console.log(cartItems)
         )
                )
     }  
-    <div className="h-[300px]  mt-32" >Total BILL
-    <div className="text-fuchsia-800 mt-6">{Math.round(subtotal)}.00Rs</div>
+    <div className="h-[100px]  mt-32 bg-gradient-to-r from-purple-300 text-white font-bold" >Total BILL
+    <div className="text-fuchsia-800 mt-3">{Math.round(subtotal)}.00Rs</div>
     </div>
  
 

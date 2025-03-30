@@ -55,7 +55,7 @@ const RestMenu=()=>{
                 <UserContext.Provider value={veg}>
 
 <div className="bg-green-500 inline-block w-[80px] rounded-xl text-white p-1 pl-2 cursor-pointer m-4"onClick={handleVeg} >{vegtext}</div>
-    <div className="menu-card text-gray-700 text-lg font-semibold w-[900px] h-[130px] bg-purple-300 shadow-[22px_22px_83px_#c1c1c1,-22px_-22px_83px_#ffffff]  text-center  mx-auto  my-5 rounded-lg">
+    <div className="menu-card text-gray-700 text-lg font-semibold w-[900px] h-[130px] bg-orange-300 shadow-[22px_22px_83px_#c1c1c1,-22px_-22px_83px_#ffffff]  text-center  mx-auto  my-5 rounded-lg">
     <div className="font-bold text-3xl">{name}</div>
     <div>{areaName+"📍`"}</div>
     <div>{cuisines.join(", ")}</div>
